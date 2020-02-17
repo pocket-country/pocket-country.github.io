@@ -45,7 +45,7 @@
         var cn = nodeList.length;
         var pick = Math.floor(Math.random() * cn)
         var itemText = nodeList[pick].innerText
-        var textnode=document.createTextNode("I know ... ".concat(itemText));
+        var textnode=document.createTextNode("I know ... ".concat(itemText,"!"));
         document.getElementById("know").appendChild(textnode)
         //document.getElementById("doit").innerText=text.concat(" ",itemText);
       }
