@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Omni List</title>
+    <style>
+      div {
+          border-style: solid solid none solid;
+          border-radius: 15px;
+          margin: 10px;
+          padding: 10px;
+          }
+      #know { border-style: solid }
+    </style>
+  </head>
+  <body>
+    <div>
+      Your stuff here -->
+      <input type='text' id='idea' />
+      <input type='button' value='Add Possibliity' id='add' />
+    </div>
+    <div id='listbox'>
+      The List:
+      <hr />
+      <ul id='list'></ul>
+    </div>
+    <div id='know'>
+      <input type='button' value='What to Do?' id='bam' />
+      <h1 id="doit"></h1>
+    </div>
+
+    <script>
+      document.getElementById("add").onclick = function() {
+        var text = document.getElementById("idea").value;
+        var node = document.createElement("Li");
+        var textnode=document.createTextNode(text);
+        node.appendChild(textnode);
+        document.getElementById("list").appendChild(node);
+        // clear text from input field and give it the focus
+        document.getElementById("idea").value=""
+        document.getElementById("idea").focus()
+      }
+      document.getElementById("bam").onclick = function() {
+        var text = document.getElementById("doit").innerText;
+        var nodeList = document.getElementById("list").childNodes;
+        var cn = nodeList.length;
+        var pick = Math.floor(Math.random() * cn)
+        var itemText = nodeList[pick].innerText
+        var textnode=document.createTextNode("I know ... ".concat(itemText));
+        document.getElementById("know").appendChild(textnode)
+        //document.getElementById("doit").innerText=text.concat(" ",itemText);
+      }
+    </script>
+  </body>
+<html>
